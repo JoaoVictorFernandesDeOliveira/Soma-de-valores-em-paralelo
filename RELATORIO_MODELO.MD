@@ -1,38 +1,33 @@
 # Soma De Valores em para
 
-**Disciplina:** 
-**Aluno(s):**
-**Turma:**
-**Professor:**
-**Data:**
+**Disciplina:Programção concorrente e distribuída 
+**Aluno(s):João Victor Fernandes
+**Turma:ADS
+**Professor:Rafael
+**Data:18/03/2026
 
 ---
 
 # 1. Descrição do Problema
 
-Descreva o problema computacional resolvido pelo programa.
+* **Problema:** Soma de todos os números contidos num ficheiro de texto.
+* **Algoritmo:** Soma acumulativa com divisão de tarefas (redução paralela).
+* **Tamanho da Entrada:** 10.000.000 (10 milhões) de números.
+* **Objetivo da Paralelização:** Tentar acelerar o cálculo distribuindo a carga entre vários núcleos da CPU.
 
-## Orientações para preenchimento
-
-Explique:
-
-* Qual problema foi implementado
-* Qual algoritmo foi utilizado
-* Qual o tamanho da entrada utilizada nos testes
-* Qual o objetivo da paralelização
-
-**Questões que devem ser respondidas:**
-
-* Qual é o objetivo do programa?
-* Qual o volume de dados processado?
-* Qual algoritmo foi utilizado?
-* Qual a complexidade aproximada do algoritmo?
-
----
+### Respostas Diretas:
+* **Objetivo:** Comparar o tempo de execução entre o modo serial e o modo paralelo (2, 4, 8 e 12 processos).
+* **Volume de Dados:** 10 milhões de registos (ficheiro `numero2.txt`).
+* **Algoritmo Utilizado:** Redução paralela via `multiprocessing`.
+* **Complexidade:** **O(n)** — Complexidade Linear.
 
 # 2. Ambiente Experimental
 
-Descreva o ambiente em que os experimentos foram realizados.
+Os experimentos e a análise de dados foram realizados utilizando as seguintes ferramentas:
+
+* **Desenvolvimento e Execução:** Visual Studio Code (VS Code).
+* **Processamento de Dados e Gráficos:** Microsoft Excel.
+* **Linguagem:** Python (via VS Code).
 
 ## Orientações
 
@@ -40,49 +35,38 @@ Informar as características do hardware e software utilizados na execução dos
 
 | Item                        | Descrição |
 | --------------------------- | --------- |
-| Processador                 |           |
-| Número de núcleos           |           |
-| Memória RAM                 |           |
-| Sistema Operacional         |           |
-| Linguagem utilizada         |           |
-| Biblioteca de paralelização |           |
-| Compilador / Versão         |           |
+| Processador                 | Processador	12th Gen Intel(R) Core(TM) i7-12700, 2100 Mhz |
+| Número de núcleos           |12 Núcleo(s) |
+| Memória RAM                 |16,0 GB      |
+| Sistema Operacional         |Windows      |
+| Linguagem utilizada         | Python      |
+| Biblioteca de paralelização |  Multiprocessing (Pool)  |
+| Compilador / Versão         |  Cpython 3.12.3   |
 
 ---
 
 # 3. Metodologia de Testes
 
-Explique como os experimentos foram conduzidos.
+Os experimentos foram conduzidos para comparar o tempo de processamento entre uma abordagem sequencial e uma abordagem paralela utilizando múltiplos processos.
 
-## Orientações
+### Procedimento Experimental
+* **Medição do Tempo:** O tempo de execução foi medido utilizando a função `time.time()` do Python, capturando o instante exato antes do início da soma e imediatamente após o seu término.
+* **Tamanho da Entrada:** Foi utilizado um arquivo (`numero2.txt`) contendo **10.000.000 (10 milhões)** de números inteiros.
+* **Execuções:** Para cada configuração, foi realizada uma execução direta para coleta dos tempos de processamento.
+* **Condições de Execução:** Os testes foram realizados no ambiente **VS Code**, mantendo o sistema em condições normais de uso para simular um cenário real de execução.
 
-Descrever:
+### Configurações Testadas
+Foram testadas 5 configurações distintas de processamento:
+1. **1 Processo (Serial):** Execução padrão do Python (baseline).
+2. **2 Processos:** Divisão da lista em 2 partes.
+3. **4 Processos:** Divisão da lista em 4 partes.
+4. **8 Processos:** Divisão da lista em 8 partes.
+5. **12 Processos:** Divisão da lista em 12 partes.
 
-* Como o tempo de execução foi medido
-* Quantas execuções foram realizadas
-* Se foi utilizada média dos tempos
-* Qual tamanho da entrada foi usado
-
-### Configurações testadas
-
-Os experimentos devem ser realizados nas seguintes configurações:
-
-* 1 thread/processo (versão serial)
-* 2 threads/processos
-* 4 threads/processos
-* 8 threads/processos
-* 12 threads/processos
-
-### Procedimento experimental
-
-Descrever:
-
-* Número de execuções para cada configuração
-* Forma de cálculo da média
-* Condições de execução (ex: máquina dedicada, carga do sistema, etc.)
-
----
-
+### Cálculos de Desempenho
+Para a análise comparativa, foram aplicadas as fórmulas:
+* **Speedup:** Razão entre o tempo serial e o tempo paralelo ($T1 / Tp$).
+* **Eficiência:** Razão entre o Speedup e o número de processos utilizados ($S / p$).
 # 4. Resultados Experimentais
 
 Preencha a tabela com os **tempos médios de execução** obtidos.
@@ -94,11 +78,11 @@ Preencha a tabela com os **tempos médios de execução** obtidos.
 
 | Nº Threads/Processos | Tempo de Execução (s) |
 | -------------------- | --------------------- |
-| 1                    |                       |
-| 2                    |                       |
-| 4                    |                       |
-| 8                    |                       |
-| 12                   |                       |
+| 1                    | 0.029905              |
+| 2                    | 0.4495                |
+| 4                    | 0.319019              |
+| 8                    | 0.319019              |
+| 12                   | 0.335635              |
 
 ---
 
@@ -137,9 +121,9 @@ Preencha a tabela abaixo utilizando os tempos medidos.
 | ----------------- | --------- | ------- | ---------- |
 | 1                 |0.029905   | 10.000  |     100%   |
 | 2                 |0.4495     | 0.0665  |      3%    |
-| 4                 |0.319019   | 0.0937  |        1    |
-| 8                 |           |         |            |
-| 12                |           |         |            |
+| 4                 |0.319019   | 0.0937  |      1     |
+| 8                 |0.319019   | 0.093741|      1%    |
+| 12                |0.335635   | 0.0891  |      0.7%  |
 
 ---
 
@@ -154,7 +138,7 @@ Construa um gráfico mostrando o **tempo de execução em função do número de
 
 Inserir o gráfico abaixo:
 
-![Gráfico Tempo Execução](graficos/tempo_execucao.png)
+
 
 ---
 
@@ -192,35 +176,27 @@ Inserir o gráfico abaixo:
 
 # 10. Análise dos Resultados
 
-Realize uma análise crítica dos resultados obtidos.
+### Análise Crítica
+Os resultados demonstram que, para este problema específico, a paralelização em Python não resultou em ganho de desempenho. O tempo de execução aumentou significativamente ao sair do modo serial para o paralelo.
 
-## Questões a serem respondidas
+### Respostas às Questões
+* **O speedup foi próximo do ideal?** Não. O speedup ideal para 4 processos seria 4.0, mas o obtido foi aproximadamente 0.09.
+* **A aplicação apresentou escalabilidade?** Não. Aumentar o número de processos não reduziu o tempo de execução abaixo do tempo serial. Houve uma pequena melhora de 2 para 4 processos, mas estagnou a partir daí.
+* **Em qual ponto a eficiência começou a cair?** A eficiência caiu imediatamente na transição para 2 processos (caindo para 3%), permanecendo baixíssima em todas as outras configurações.
+* **O número de threads ultrapassa os núcleos físicos?** [Verificar sua máquina: se seu PC tem 4 ou 6 núcleos, o teste de 8 e 12 ultrapassou os núcleos físicos, causando disputa de recursos].
+* **Houve overhead de paralelização?** Sim, um overhead massivo. O custo de gerenciar os processos foi muito superior ao custo do cálculo da soma.
 
-* O speedup obtido foi próximo do ideal?
-* A aplicação apresentou escalabilidade?
-* Em qual ponto a eficiência começou a cair?
-* O número de threads ultrapassa o número de núcleos físicos da máquina?
-* Houve overhead de paralelização?
-
-Discutir possíveis causas para:
-
-* perda de desempenho
-* gargalos no algoritmo
-* sincronização entre threads/processos
-* comunicação entre processos
-* contenção de memória ou cache
-
----
+### Discussão de Causas
+1. **Comunicação entre Processos (IPC):** O Python precisa copiar e enviar partes da lista para cada processo e depois receber os resultados. Esse tráfego de dados entre processos consome muito mais tempo do que a soma em si.
+2. **Perda de Desempenho:** A função `sum()` do Python é implementada em C e é extremamente rápida. Tentar paralelizar uma operação que já leva apenas 0.02s gera um custo de "logística" (abrir e fechar processos) que não compensa.
+3. **Gargalo no Algoritmo:** A soma é uma tarefa "Memory Bound" (limitada pela velocidade da memória). Como todos os processos tentam acessar a RAM simultaneamente para ler os 10 milhões de números, ocorre contenção de barramento de memória.
+4. **Sincronização:** O processo principal precisa esperar que todos os sub-processos terminem (Barreira de Sincronização) para realizar a soma final, o que introduz tempos de espera ociosos.
 
 # 11. Conclusão
 
-Apresente as conclusões do experimento.
-
-## Sugestões de pontos a comentar
-
-* O paralelismo trouxe ganho significativo de desempenho?
-* Qual foi o melhor número de threads/processos?
-* O programa escala bem com o aumento do paralelismo?
-* Quais melhorias poderiam ser feitas na implementação?
-
----
+* **Ganho de Desempenho:** O paralelismo não trouxe ganhos de desempenho para este cenário. Pelo contrário, a versão serial foi significativamente mais rápida que qualquer configuração paralela.
+* **Melhor Configuração:** A melhor execução foi a **Serial (1 processo)**. Entre os testes paralelos, o melhor resultado ocorreu com **4 processos**, mas ainda assim foi cerca de 10 vezes mais lento que o serial.
+* **Escalabilidade:** O programa não apresentou escalabilidade. O aumento no número de processos apenas evidenciou o custo elevado de coordenação (overhead) do Python, que superou o benefício da divisão do cálculo.
+* **Melhorias Sugeridas:** 1. Utilizar bibliotecas como **NumPy**, que operam de forma vetorizada e otimizada em baixo nível.
+    2. Testar com um volume de dados ainda maior (bilhões de elementos) ou cálculos mais complexos para diluir o custo de criação dos processos.
+    3. Experimentar a implementação em linguagens como **C ou C++ com OpenMP**, que possuem um custo de gerenciamento de threads muito menor que o sistema de processos do Python.
