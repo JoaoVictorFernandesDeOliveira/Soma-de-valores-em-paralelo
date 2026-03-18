@@ -1,4 +1,4 @@
-# Relatório da NOME DA ATIVIDADE
+# Soma De Valores em para
 
 **Disciplina:** 
 **Aluno(s):**
@@ -135,9 +135,9 @@ Preencha a tabela abaixo utilizando os tempos medidos.
 
 | Threads/Processos | Tempo (s) | Speedup | Eficiência |
 | ----------------- | --------- | ------- | ---------- |
-| 1                 |           | 1.0     | 1.0        |
-| 2                 |           |         |            |
-| 4                 |           |         |            |
+| 1                 |0.029905   | 10.000  |     100%   |
+| 2                 |0.4495     | 0.0665  |      3%    |
+| 4                 |0.319019   | 0.0937  |        1    |
 | 8                 |           |         |            |
 | 12                |           |         |            |
 
