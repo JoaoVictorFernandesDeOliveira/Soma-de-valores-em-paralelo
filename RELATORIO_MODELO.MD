@@ -138,7 +138,7 @@ Construa um gráfico mostrando o **tempo de execução em função do número de
 
 Inserir o gráfico abaixo:
 
-
+3.png
 
 ---
 
