@@ -170,7 +170,7 @@ Construa um gráfico mostrando a **eficiência da paralelização**.
 
 Inserir o gráfico abaixo:
 
-![Gráfico Eficiência](graficos/eficiencia.png)
+![Gráfico Eficiência](1.png)
 
 ---
 
