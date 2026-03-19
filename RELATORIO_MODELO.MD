@@ -154,7 +154,7 @@ Construa um gráfico mostrando o **speedup obtido**.
 
 Inserir o gráfico abaixo:
 
-![Gráfico Speedup](graficos/speedup.png)
+![Gráfico Speedup](2.png)
 
 ---
 
